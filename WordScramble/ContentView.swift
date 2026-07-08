@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var alertShowing = false
+    let people = ["Finn", "leah", "Luke", "Rey"]
     var body: some View {
-        Button("Test") {
-            alertShowing = true
+        List {
+            Text("Static Row")
+            ForEach(people , id: \.self) { name in
+                Text(name)
+            }
+            Text("Sttic Row")
+                
+            
         }
             
     }
