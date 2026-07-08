@@ -11,7 +11,7 @@ struct ContentView: View {
     let people = ["Finn", "leah", "Luke", "Rey"]
     var body: some View {
                 
-            
+            Text(testStrings() ?? "")
         }
     
     func testBundles() {
@@ -20,6 +20,21 @@ struct ContentView: View {
                 
             }
         }
+    }
+    
+    func testStrings () -> String? {
+        let input = """
+            a
+            b
+            c
+            t
+            p
+            """
+        let letters = input.components(separatedBy: "\n")
+        let randomLetter = letters.randomElement()
+        let trimmed = randomLetter?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        return trimmed
     }
 
             
