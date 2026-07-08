@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var alertShowing = false
     var body: some View {
-        
+        Button("Test") {
+            alertShowing = true
+        }
             
     }
-    func testBundles() {
-        if let fileURL = Bundle.main.url(forResource: "some-file", withExtension: "txt") {
-            if let fileContent = try? String(contentOf: fileURL)
-                
-        }
+    func testStrings() -> [String] {
+        let input = "a b c"
+        let letters = input.components(separatedBy: " ")
+        return letters
     }
 }
 
