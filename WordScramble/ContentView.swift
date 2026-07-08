@@ -10,8 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let people = ["Finn", "leah", "Luke", "Rey"]
     var body: some View {
-                
-            Text(testStrings() ?? "")
+            
         }
     
     func testBundles() {
@@ -22,19 +21,15 @@ struct ContentView: View {
         }
     }
     
-    func testStrings () -> String? {
-        let input = """
-            a
-            b
-            c
-            t
-            p
-            """
-        let letters = input.components(separatedBy: "\n")
-        let randomLetter = letters.randomElement()
-        let trimmed = randomLetter?.trimmingCharacters(in: .whitespacesAndNewlines)
+    func testStrings () {
+        let word = "Swift"
+        let checker = UITextChecker()
         
-        return trimmed
+        let range = NSRange(location: 0, length: word.utf16.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        let allGood = misspelledRange.location == NSNotFound
+       
     }
 
             
